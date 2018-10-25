@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Learning jquery</title>
+        <script src="js/jquery.js"></script>
+        <script>
+           $("document").ready(function() {
+            $("#textBox").on("click", clicked);
+            $("#textBox").on("mouseleave", left);
+            $("#textBox").css("border", "3px red solid");
+            $("p:contains('index')").css("border", "3px blue solid");
+            $(".child p:nth-child(1)").css("border", "3px green solid");
+
+            function clicked () {
+                $("#textBox").html("You have clicked");  
+            };
+            function left () {
+                $("#textBox").html("<h1>You have left</h1>")  ;
+            };
+            $("#show").on("click", function() {
+                $("#javaQuery").show();
+            });
+            $("#hide").on("click", function () {
+                $("#javaQuery").hide();
+            });
+            $("#javaQuery p:odd").css("background", "red");
+            $(".textCopy").hover(colorAlive);
+            function colorAlive () {
+                $(this).toggleClass("highlight");
+
+            };
+            $("#dofade").on("click", function(){
+                $(".adiat").fadeIn(3000, function(){
+                    alert("I faded in");
+                });
+             $("#dontfade").on("click", function() {
+                 $(".adiat").fadeOut(3000, function() {
+                     alert("i am done");
+                 });
+             })   
+
+            });
+            $("#toggleMe").on("click", toggland);
+            function toggland () {
+                $(".adiat").toggle("4000", "swing");
+            };
+            
+            $("#move").on("click", moveside);
+            function moveside () {
+                $(".animation").animate({marginLeft: "200px"}, 2000);
+
+            };
+            $("#bigger").on("click", bebig);
+            function bebig () {
+                $(".animation").animate({fontSize: "50px"}, 2000);
+
+            };
+            $("#manythings").on("click", dobetter);
+            function dobetter () {
+                $(".animation").animate({width: "500px", fontSize: "50px", marginLeft: "200px"}, 5000);
+
+            };
+
+
+
+           });
+
+        </script>
+        
+        <style>
+
+            #textBox{
+        
+                height: 150px;
+                width: 150px;
+                border: 1px;
+                background-color: lightgreen;
+            
+            }
+            #javaQuery{
+                display: none;
+
+            }
+            .highlight {
+                background-color: limegreen
+            }
+            .adiat {
+                display: none;
+            }
+            .animation {
+                height: 200px;
+                width: 200px;
+                background-color: aquamarine;
+                margin: 100px;
+                position: absolute;
+            }
+            .red-text {
+    color: red;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: monospace;
+  }
+            
+
+        </style>
+    </head>
+    <body>
+        <div id="textBox">
+                A Conversation with Paul Graham
+        </div>
+        <a href="#" id="show">Click to show information</a>  <a href="#" id="hide">Click to hide information</a>
+        <div id="javaQuery">
+           <p class="textCopy"> i like waking up in the morning. i hope the birds eat the food that i have given them. they are so sweet when they chirp. i like the sound of the mornings. i wish i wasn't so lazy. so i could wake up early in the morning every day and enjoy the peace and serenety of the morning.</p>
+           <p> i love my life. Alhamdulillah. i am blessed. i love my life. thank you so much Allah for what you have given me. thank you so much for helping me survive those horrible years. </p>
+        </div>
+        <div>
+            <a href="#" id="dofade">Fade In</a> | <a href="#" id="dontfade">Fade Out</a> | <a href="#" id="toggleMe">Toggle</a>
+            <p class="adiat">wal adiayti dobhan. fal miriati qodhan f a sar na bihi naq an. fawa satna bihio jam a.</p>
+        </div>
+        <div class="child">
+            <a href="#" id="grow">Grow</a> | <a href="#" id="move">Move</a> | <a href="#" id="bigger">Bigger</a> | <a href="#" id="manythings">Many Things</a>
+            <p class="animation">selectionStart
+                    The 0-based index of the first selected character.
+                    selectionEnd
+                    The 0-based index of the character after the last selected character.
+                    selectionDirection Optional
+                    A string indicating the direction in which the selection is performed. This string can be "forward" or "backward", or "none" if the direction is unknown or irrelevant.</p>
+
+                    <p>Aiodex’s Referral Program  will give you 20% -80% commission from their transaction fee for 7 years. The value will be calculated starting from the date the member you invite sign up.</p>
+                    <p>Aiodex’s Referral Program  will give you 20% -80% commission from their transaction fee for 7 years. The value will be calculated starting from the date the member you invite sign up.</p>
+        </div>
+        <h2 class="red-text">CatPhotoApp</h2>
+        <p class="red-text">Click here to view more <a href="#">cat photos</a>.</p>
+        <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+  
+        <div>
+          <p>Things cats love:</p>
+          <ul>
+            <li>cat nip</li>
+            <li>laser pointers</li>
+            <li>lasagna</li>
+          </ul>
+          <p>Top 3 things cats hate:</p>
+          <ol>
+            <li>flea treatment</li>
+            <li>thunder</li>
+            <li>other cats</li>
+          </ol>
+        </div>
+        
+        <form action="/submit-cat-photo">
+          <label><input type="radio" name="indoor-outdoor" checked> Indoor</label>
+          <label><input type="radio" name="indoor-outdoor"> Outdoor</label><br>
+          <label><input type="checkbox" name="personality" checked> Loving</label>
+          <label><input type="checkbox" name="personality"> Lazy</label>
+          <label><input type="checkbox" name="personality"> Energetic</label><br>
+          <input type="text" placeholder="cat photo URL" required>
+          <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
